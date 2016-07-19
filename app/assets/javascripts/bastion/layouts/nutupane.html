@@ -64,8 +64,11 @@
       <span ng-hide="$root.$state.current.collapsed">{{ "Loading..." | translate }}</span>
     </div>
 
-    <p bst-alert="info" ng-show="table.rows.length === 0 && !table.working">
+    <p bst-alert="info" ng-show="table.rows.length === 0 && !table.working && !table.searchTerm">
       <span data-block="no-rows-message"></span>
+    </p>
+    <p bst-alert="info" ng-show="table.rows.length === 0 && !table.working && table.searchTerm">
+      <span data-block="no-search-results-message"></span>
     </p>
 
     <div ng-show="table.rows.length > 0" bst-container-scroll data="table.rows">
